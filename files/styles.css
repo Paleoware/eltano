@@ -1,0 +1,914 @@
+/* ---- RESTRICCIONES GENERALES ---- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth; /* Hace que los saltos del menú sean suaves */
+}
+
+body {
+  background-color: #f4f1ea;
+}
+
+h2,
+h1,
+.subtitulo {
+  font-family: "Cormorant Garamond", sans-serif;
+}
+
+p {
+  font-family: "lato regular", serif;
+}
+
+a {
+  font-family: "Montserrat Alternates", sans-serif;
+}
+
+h3 {
+  font-family: "Montserrat Alternates", serif;
+  font-style: normal;
+}
+
+#confetti-container {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+.confetti {
+  position: absolute;
+
+  width: 10px;
+  height: 15px;
+
+  opacity: 0.8;
+
+  animation: caer linear forwards;
+}
+
+@keyframes caer {
+  from {
+    transform: translateY(-50px) rotate(0deg);
+  }
+
+  to {
+    transform: translateY(110vh) rotate(720deg);
+  }
+}
+
+.contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.seo-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* ---- HEADER ---- */
+.sitio-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  z-index: 100;
+
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+}
+
+.sitio-header.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.logo-link img {
+  max-height: 60px;
+  width: auto;
+}
+
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#hamburger-btn {
+  position: fixed;
+
+  top: 20px;
+  right: 20px;
+
+  width: 55px;
+  height: 55px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #8c1c13;
+
+  font-size: 1.8rem;
+  cursor: pointer;
+
+  z-index: 999;
+
+  display: none;
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+#hamburger-btn.visible {
+  display: block;
+}
+
+#mobile-menu {
+  position: fixed;
+
+  top: 0;
+  right: -280px;
+
+  width: 280px;
+  height: 100vh;
+
+  background: #1a1a1a;
+
+  display: flex;
+  flex-direction: column;
+
+  padding-top: 100px;
+
+  transition: right 0.3s ease;
+
+  z-index: 998;
+}
+
+#mobile-menu a {
+  color: white;
+  text-decoration: none;
+
+  padding: 20px 30px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#mobile-menu.open {
+  right: 0;
+}
+
+.navegacion a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.navegacion a:hover {
+  color: #8c1c13;
+}
+
+/*----FADE UP----*/
+.fade-up {
+  opacity: 0;
+
+  transform: translateY(80px);
+
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fade-up.visible {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+/* ---- HERO SECTION ---- */
+.hero {
+  min-height: 100vh;
+
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url("./img/parrilla-el-tano-avellaneda_862x485_wmk.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-contenido img {
+  width: min(300px, 50vw);
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+/* ---- SECCIÓN HISTORIA ---- */
+.historia-seccion {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+}
+
+.historia-flex {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+.historia-imagen,
+.historia-texto {
+  flex: 1;
+  z-index: 2;
+}
+
+.historia-imagen img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.subtitulo {
+  color: #234f2e;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.historia-texto h2 {
+  color: #8c1c13;
+  font-size: 36px;
+  margin: 10px 0 20px 0;
+}
+
+/* ---- CARRUSEL TRADICIONAL NATIVO ---- */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.carousel-container::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 120px;
+
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+
+  pointer-events: none;
+}
+
+.carousel-container::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.15);
+
+  z-index: 2;
+
+  pointer-events: none;
+}
+
+.carousel-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  transition: transform 1.2s ease;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+
+  flex-shrink: 0;
+
+  object-fit: cover;
+}
+
+.btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  z-index: 20;
+
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+
+  border: none;
+
+  padding: 15px;
+  font-size: 2rem;
+
+  cursor: pointer;
+}
+
+.prev {
+  left: 15px;
+}
+
+.next {
+  right: 15px;
+}
+
+.carrusel-indicators {
+  position: absolute;
+
+  bottom: 20px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  gap: 10px;
+
+  z-index: 20;
+}
+
+.indicador {
+  width: 12px;
+  height: 12px;
+
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+
+  cursor: pointer;
+}
+
+.indicador.active {
+  background: #ffc107;
+}
+
+/* ---- SERVICIOS (CSS GRID) ---- */
+.titulo-servicios {
+  text-align: center;
+
+  margin-bottom: 60px;
+}
+
+.titulo-servicios h2 {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+
+  font-weight: 600;
+
+  color: #234f2e;
+
+  text-transform: uppercase;
+
+  letter-spacing: 4px;
+
+  position: relative;
+
+  display: inline-block;
+
+  padding: 25px 0;
+}
+
+.titulo-servicios h2::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 320px;
+  height: 4px;
+
+  background: linear-gradient(
+    to right,
+    #009246 0%,
+    #009246 40%,
+    #d9d9d9 40%,
+    #d9d9d9 60%,
+    #ce2b37 60%,
+    #ce2b37 100%
+  );
+}
+
+.titulo-servicios h2::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: 0;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 320px;
+  height: 4px;
+
+  background: linear-gradient(
+    to right,
+    #009246 0%,
+    #009246 40%,
+    #d9d9d9 40%,
+    #d9d9d9 60%,
+    #ce2b37 60%,
+    #ce2b37 100%
+  );
+}
+
+.servicios {
+  max-width: 1400px;
+
+  margin: 120px auto;
+
+  padding: 0 20px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 30px;
+}
+
+.servicio-card {
+  display: grid;
+
+  grid-template-columns: 1fr 1.4fr;
+
+  background: #f8f5ef;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+  transition: 0.35s ease;
+}
+
+.servicio-texto {
+  padding: 60px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+.servicio-icono {
+  font-size: 3rem;
+
+  color: #8c1c13;
+
+  margin-bottom: 20px;
+}
+
+.servicio-subtitulo {
+  color: #234f2e;
+
+  font-family: "Montserrat Alternates", sans-serif;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 10px;
+}
+
+.servicio-texto h2 {
+  font-size: 3rem;
+
+  color: #1a1a1a;
+
+  margin-bottom: 20px;
+}
+
+.servicio-texto p {
+  font-size: 1.1rem;
+
+  line-height: 1.8;
+
+  color: #555;
+
+  max-width: 500px;
+}
+
+.servicio-imagen img {
+  width: 100%;
+
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+.servicio-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* ---- MAPA ---- */
+.reveal {
+  opacity: 0;
+
+  transform: scale(0.95);
+
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+
+  transform: scale(1);
+}
+
+.mapa-seccion {
+  max-width: 1300px;
+
+  margin: 80px auto;
+
+  padding: 0 20px;
+}
+
+.mapa-seccion h2 {
+  text-align: center;
+
+  color: #8c1c13;
+
+  font-size: 2.5rem;
+
+  margin-bottom: 30px;
+
+  position: relative;
+}
+
+.mapa-seccion h2::after {
+  content: "";
+
+  display: block;
+
+  width: 100px;
+  height: 3px;
+
+  margin: 15px auto 0;
+
+  background: #d4af37;
+}
+
+.mapa-seccion iframe {
+  width: 100%;
+  height: 500px;
+
+  display: block;
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.15),
+    0 5px 15px rgba(0, 0, 0, 0.08);
+
+  border: 3px solid #d4af37;
+}
+
+.mapa-seccion {
+  position: relative;
+}
+
+.mapa-seccion::before {
+  content: "";
+
+  position: absolute;
+
+  top: -40px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 150px;
+  height: 3px;
+
+  background: linear-gradient(to right, transparent, #d4af37, transparent);
+}
+
+/*---- FOOTER ----*/
+
+.footer {
+  background:
+    linear-gradient(rgba(10, 20, 15, 0.92), rgba(10, 20, 15, 0.92)),
+    url("../img/footer-bg.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+
+  color: #f4f1ea;
+
+  margin-top: 100px;
+}
+
+.footer-top {
+  height: 6px;
+
+  background: linear-gradient(
+    to right,
+    #234f2e 33%,
+    #f4f1ea 33%,
+    #f4f1ea 66%,
+    #8c1c13 66%
+  );
+}
+
+.footer-container {
+  max-width: 1400px;
+
+  margin: auto;
+
+  padding: 80px 20px;
+
+  display: grid;
+
+  grid-template-columns:
+    1.5fr
+    1fr
+    1fr
+    1fr;
+
+  gap: 50px;
+}
+
+.footer h3 {
+  font-family: "Cormorant Garamond", serif;
+
+  color: #c8a25d;
+
+  font-size: 2rem;
+
+  margin-bottom: 25px;
+}
+
+.footer-logo img {
+  width: 100px;
+
+  margin-bottom: 20px;
+}
+
+.footer-logo p {
+  max-width: 300px;
+
+  line-height: 1.8;
+
+  color: #d6d0c7;
+}
+
+.footer ul {
+  list-style: none;
+
+  padding: 0;
+}
+
+.footer li {
+  margin-bottom: 12px;
+
+  color: #d6d0c7;
+}
+
+.telefono-wpp {
+  color: #d6d0c7;
+
+  text-decoration: none;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.telefono-wpp i {
+  font-size: 1.2rem;
+}
+
+.redes {
+  display: flex;
+
+  gap: 15px;
+
+  margin-bottom: 30px;
+}
+
+.redes a {
+  width: 50px;
+
+  height: 50px;
+
+  border-radius: 12px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  text-decoration: none;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  color: #f4f1ea;
+
+  transition: 0.3s;
+}
+
+.redes a:hover {
+  background: #8c1c13;
+
+  transform: translateY(-4px);
+}
+
+.redes i {
+  font-size: 1.4rem;
+}
+
+.btn-footer {
+  display: inline-block;
+
+  padding: 14px 28px;
+
+  background: #8c1c13;
+
+  color: white;
+
+  text-decoration: none;
+
+  border-radius: 12px;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.btn-footer:hover {
+  background: #a62218;
+
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  text-align: center;
+
+  padding: 25px;
+
+  color: #b9b2a8;
+}
+
+/* ---- RESPONSIVE (Celulares) ---- */
+@media (max-width: 768px) {
+  .hero {
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+      url("./img/parrilla-el-tano-avellaneda_862x485_wmk.jpg");
+
+    background-size: cover;
+    background-position: center;
+  }
+  .header-flex {
+    display: none;
+  }
+
+  .sitio-header {
+    height: 0;
+    padding: 0;
+    background: transparent;
+  }
+
+  #hamburger-btn {
+    display: block;
+  }
+  .historia-flex {
+    flex-direction: column;
+    text-align: center;
+  }
+  .navegacion {
+    margin-top: 25px;
+  }
+  .navegacion a {
+    margin: 0 10px;
+  }
+  .servicios-grid {
+    grid-template-columns: 1fr; /* 1 sola columna en celulares */
+  }
+  .carrusel-item {
+    height: 300px; /* Fotos más chicas en celulares */
+  }
+  .servicios-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .servicio-card {
+    display: flex;
+
+    flex-direction: column;
+
+    height: auto;
+  }
+
+  .servicio-texto {
+    padding: 30px;
+
+    width: 100%;
+  }
+
+  .servicio-texto h2 {
+    font-size: 2.2rem;
+  }
+
+  .servicio-imagen {
+    width: 100%;
+
+    height: 250px;
+
+    flex-shrink: 0;
+  }
+
+  .servicio-imagen img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 992px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+
+    text-align: center;
+  }
+
+  .footer-logo p {
+    margin: auto;
+  }
+
+  .redes {
+    justify-content: center;
+  }
+
+  .telefono-wpp {
+    justify-content: center;
+  }
+}

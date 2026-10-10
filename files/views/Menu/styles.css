@@ -1,0 +1,1017 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f4f1ea;
+}
+
+h2,
+h1,
+.subtitulo {
+  font-family: "Cormorant Garamond", sans-serif;
+}
+
+p {
+  font-family: "lato regular", serif;
+}
+
+a {
+  font-family: "Montserrat Alternates", sans-serif;
+}
+
+h3 {
+  font-family: "Montserrat Alternates", serif;
+  font-style: normal;
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+.sitio-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+
+  width: 100%;
+
+  padding: 15px 40px;
+
+  z-index: 100;
+
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+}
+
+.sitio-header.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  max-height: 70px;
+  display: block;
+}
+
+.navegacion {
+  display: flex;
+  gap: 30px;
+}
+
+.navegacion a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.navegacion a:hover {
+  color: #8c1c13;
+}
+
+/* ==========================
+   HAMBURGUESA
+========================== */
+
+#hamburger-btn {
+  position: fixed;
+
+  top: 20px;
+  right: 20px;
+
+  width: 55px;
+  height: 55px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #8c1c13;
+
+  color: white;
+
+  font-size: 1.8rem;
+
+  cursor: pointer;
+
+  display: none;
+
+  z-index: 999;
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+#hamburger-btn.visible {
+  display: block;
+}
+
+#mobile-menu {
+  position: fixed;
+
+  top: 0;
+  right: -280px;
+
+  width: 280px;
+  height: 100vh;
+
+  background: #1a1a1a;
+
+  display: flex;
+  flex-direction: column;
+
+  padding-top: 100px;
+
+  transition: right 0.3s ease;
+
+  z-index: 998;
+}
+
+#mobile-menu.open {
+  right: 0;
+}
+
+#mobile-menu a {
+  color: white;
+
+  text-decoration: none;
+
+  padding: 20px 30px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================
+   PAGINA
+========================== */
+
+.parrilla-main {
+  background: #f6f0e5;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/*----FADE UP----*/
+.fade-up {
+  opacity: 0;
+
+  transform: translateY(80px);
+
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fade-up.visible {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+.galeria-comida img:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.galeria-comida img:nth-child(2) {
+  transition-delay: 0.15s;
+}
+
+.galeria-comida img:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.galeria-comida img:nth-child(4) {
+  transition-delay: 0.45s;
+}
+
+/* ---- HERO SECTION ---- */
+.hero {
+  min-height: 100vh;
+
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url("./img/parrilla-el-tano-avellaneda_862x485_wmk.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-contenido img {
+  width: min(300px, 50vw);
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================
+   CAROUSEL
+========================== */
+
+.parrilla-hero .carousel-section {
+  width: 100%;
+  height: 100vh;
+
+  margin: 0;
+  padding: 0;
+}
+
+.parrilla-hero .carousel-container {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+.parrilla-hero .carousel-track {
+  display: flex;
+  height: 100%;
+
+  transition: transform 1.2s ease;
+}
+
+.parrilla-hero .slide {
+  min-width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  filter: brightness(0.8);
+
+  transition:
+    transform 8s ease,
+    filter 0.5s ease;
+}
+
+.parrilla-hero .slide:hover {
+  transform: scale(1.05);
+}
+
+/* ==========================
+   CONTROLES
+========================== */
+
+.btn {
+  position: absolute;
+
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 60px;
+  height: 60px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.55);
+
+  backdrop-filter: blur(6px);
+
+  color: white;
+
+  font-size: 1.3rem;
+
+  cursor: pointer;
+
+  z-index: 25;
+
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+  left: 30px;
+}
+
+.next {
+  right: 30px;
+}
+
+/* ==========================
+   HERO
+========================== */
+
+.parrilla-hero {
+  position: relative;
+
+  width: 100vw;
+  height: 85vh;
+  min-height: 650px;
+
+  margin-left: calc(50% - 50vw);
+
+  overflow: hidden;
+}
+
+/* Oscurecido */
+
+.parrilla-hero::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35));
+
+  z-index: 10;
+}
+
+/* Humo */
+
+.parrilla-hero::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 25% 90%,
+      rgba(255, 255, 255, 0.08),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 70% 70%,
+      rgba(255, 255, 255, 0.06),
+      transparent 50%
+    );
+
+  animation: humo 12s linear infinite;
+
+  z-index: 11;
+}
+
+@keyframes humo {
+  from {
+    transform: translateY(40px);
+  }
+
+  to {
+    transform: translateY(-40px);
+  }
+}
+
+/* ==========================
+   TEXTO HERO
+========================== */
+
+.hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 20px;
+
+  z-index: 20;
+
+  pointer-events: none;
+}
+
+.hero-overlay h1 {
+  position: relative;
+
+  font-size: clamp(3rem, 8vw, 6rem);
+
+  text-transform: uppercase;
+
+  letter-spacing: 8px;
+
+  color: white;
+
+  margin-bottom: 40px;
+
+  text-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Línea dorada */
+
+.hero-overlay h1::after {
+  content: "";
+
+  display: block;
+
+  width: 140px;
+  height: 4px;
+
+  margin: 20px auto 0;
+
+  border-radius: 50px;
+
+  background: #c8a25d;
+}
+
+.hero-overlay p {
+  max-width: 750px;
+
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+
+  line-height: 1.8;
+
+  color: white;
+
+  opacity: 0.95;
+
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+/* ==========================
+   FLECHA
+========================== */
+
+.scroll-indicator {
+  position: absolute;
+
+  bottom: 30px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  color: white;
+
+  font-size: 2.2rem;
+
+  z-index: 30;
+
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+
+  50% {
+    transform: translate(-50%, 10px);
+  }
+}
+
+/* ==========================
+   DESCRIPCION
+========================== */
+
+.descripcion-parrilla {
+  max-width: 1000px;
+
+  margin: 0 auto 80px;
+
+  text-align: center;
+
+  padding: 0 25px;
+}
+
+.descripcion-parrilla h2 {
+  color: #8c1c13;
+
+  font-size: 3rem;
+
+  margin-bottom: 30px;
+
+  text-transform: uppercase;
+}
+
+.descripcion-parrilla p {
+  font-size: 1.15rem;
+
+  line-height: 1.8;
+
+  margin-bottom: 20px;
+}
+
+.precio-menu {
+  font-size: 2rem;
+  text-align: center;
+  margin: 40px 0;
+}
+
+#precio-menu {
+  color: #8c1c13;
+  font-weight: bold;
+}
+
+/* ==========================
+   GALERIA PINTEREST
+========================== */
+
+.galeria-comida {
+  column-count: 3;
+  column-gap: 15px;
+
+  max-width: 1400px;
+
+  margin: 0 auto 80px;
+
+  padding: 0 20px;
+}
+
+.galeria-comida img {
+  width: 100%;
+
+  margin-bottom: 15px;
+
+  border-radius: 12px;
+
+  display: block;
+
+  break-inside: avoid;
+
+  transition: 0.4s;
+}
+
+.galeria-comida img:hover {
+  transform: scale(1.03);
+}
+
+/* ==========================
+   BEBIDAS
+========================== */
+
+.vinos-section {
+  max-width: 1400px;
+  margin: 100px auto;
+  padding: 0 20px;
+}
+
+.titulo-seccion {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.titulo-seccion h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3rem;
+  color: #8c1c13;
+}
+
+.titulo-seccion p {
+  color: #6b6b6b;
+  margin-top: 10px;
+}
+
+.vino-card {
+  background: #f4f1ea;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+  transition: 0.35s ease;
+
+  position: relative;
+  break-inside: avoid;
+  margin-bottom: 20px;
+}
+
+.vino-card:hover {
+  transform: translateY(-10px);
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.vino-card img {
+  width: 100%;
+  height: 180px;
+
+  object-fit: cover;
+}
+
+.vino-info {
+  padding: 22px;
+}
+
+.vino-info h3 {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 2rem;
+
+  color: #1a1a1a;
+
+  margin-bottom: 8px;
+}
+
+.vino-info span {
+  display: block;
+
+  color: #234f2e;
+
+  font-weight: 600;
+
+  margin-bottom: 12px;
+}
+
+.vino-info p {
+  color: #6b6b6b;
+
+  line-height: 1.6;
+}
+
+/* GRID PINTEREST */
+
+.vinos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.vino-card {
+  width: 260px;
+  height: 420px;
+
+  background: #f4f1ea;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.vino-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+}
+
+/* ==========================
+   CTA FINAL
+========================== */
+
+.experiencia-final {
+  text-align: center;
+
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  padding: 0 20px 120px;
+}
+
+.experiencia-final h2 {
+  color: #8c1c13;
+
+  font-size: 2.5rem;
+
+  margin-bottom: 20px;
+}
+
+.experiencia-final p {
+  font-size: 1.15rem;
+
+  margin-bottom: 40px;
+}
+
+.btn-reservar {
+  display: inline-block;
+
+  background: #8c1c13;
+
+  color: white;
+
+  text-decoration: none;
+
+  font-weight: bold;
+
+  padding: 18px 40px;
+
+  border-radius: 10px;
+
+  transition: 0.3s;
+}
+
+.btn-reservar:hover {
+  transform: translateY(-3px);
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 768px) {
+  .header-flex {
+    display: none;
+  }
+
+  .sitio-header {
+    height: 0;
+    padding: 0;
+    background: transparent;
+  }
+
+  #hamburger-btn {
+    display: block;
+  }
+
+  .carousel-container {
+    height: 45vh;
+    min-height: 320px;
+  }
+
+  .descripcion-parrilla h2 {
+    font-size: 2rem;
+  }
+
+  .galeria-comida {
+    column-count: 2;
+  }
+
+  .experiencia-final h2 {
+    font-size: 2rem;
+  }
+
+  .parrilla-hero {
+    min-height: 550px;
+  }
+
+  .hero-overlay h1 {
+    letter-spacing: 3px;
+  }
+
+  .hero-overlay p {
+    font-size: 1rem;
+    padding: 0 15px;
+  }
+
+  .btn {
+    width: 45px;
+    height: 45px;
+  }
+
+  .prev {
+    left: 10px;
+  }
+
+  .next {
+    right: 10px;
+  }
+}
+
+.footer {
+  background:
+    linear-gradient(rgba(10, 20, 15, 0.92), rgba(10, 20, 15, 0.92)),
+    url("../img/footer-bg.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+
+  color: #f4f1ea;
+
+  margin-top: 100px;
+}
+
+.footer-top {
+  height: 6px;
+
+  background: linear-gradient(
+    to right,
+    #234f2e 33%,
+    #f4f1ea 33%,
+    #f4f1ea 66%,
+    #8c1c13 66%
+  );
+}
+
+.footer-container {
+  max-width: 1400px;
+
+  margin: auto;
+
+  padding: 80px 20px;
+
+  display: grid;
+
+  grid-template-columns:
+    1.5fr
+    1fr
+    1fr
+    1fr;
+
+  gap: 50px;
+}
+
+.footer h3 {
+  font-family: "Cormorant Garamond", serif;
+
+  color: #c8a25d;
+
+  font-size: 2rem;
+
+  margin-bottom: 25px;
+}
+
+.footer-logo img {
+  width: 100px;
+
+  margin-bottom: 20px;
+}
+
+.footer-logo p {
+  max-width: 300px;
+
+  line-height: 1.8;
+
+  color: #d6d0c7;
+}
+
+.footer ul {
+  list-style: none;
+
+  padding: 0;
+}
+
+.footer li {
+  margin-bottom: 12px;
+
+  color: #d6d0c7;
+}
+
+.telefono-wpp {
+  color: #d6d0c7;
+
+  text-decoration: none;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.telefono-wpp i {
+  font-size: 1.2rem;
+}
+
+.redes {
+  display: flex;
+
+  gap: 15px;
+
+  margin-bottom: 30px;
+}
+
+.redes a {
+  width: 50px;
+
+  height: 50px;
+
+  border-radius: 12px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  text-decoration: none;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  color: #f4f1ea;
+
+  transition: 0.3s;
+}
+
+.redes a:hover {
+  background: #8c1c13;
+
+  transform: translateY(-4px);
+}
+
+.redes i {
+  font-size: 1.4rem;
+}
+
+.btn-footer {
+  display: inline-block;
+
+  padding: 14px 28px;
+
+  background: #8c1c13;
+
+  color: white;
+
+  text-decoration: none;
+
+  border-radius: 12px;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.btn-footer:hover {
+  background: #a62218;
+
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  text-align: center;
+
+  padding: 25px;
+
+  color: #b9b2a8;
+}
+
+/*---- RESPONSIVE ----*/
+@media (max-width: 768px) {
+  .carousel-container {
+    height: 45vh;
+    min-height: 320px;
+  }
+
+  .descripcion-parrilla h2 {
+    font-size: 2rem;
+  }
+
+  .galeria-comida {
+    column-count: 2;
+  }
+
+  .experiencia-final h2 {
+    font-size: 2rem;
+  }
+
+  .parrilla-hero {
+    min-height: 550px;
+  }
+
+  .hero-overlay h1 {
+    letter-spacing: 3px;
+  }
+
+  .hero-overlay p {
+    font-size: 1rem;
+    padding: 0 15px;
+  }
+
+  .btn {
+    width: 45px;
+    height: 45px;
+  }
+
+  .prev {
+    left: 10px;
+  }
+
+  .next {
+    right: 10px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+
+    text-align: center;
+  }
+
+  .footer-logo p {
+    margin: auto;
+  }
+
+  .redes {
+    justify-content: center;
+  }
+
+  .telefono-wpp {
+    justify-content: center;
+  }
+}

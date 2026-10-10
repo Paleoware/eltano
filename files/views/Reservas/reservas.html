@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reservas | Parrilla El Tano Debenedetti</title>
+
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Lato&family=Montserrat+Alternates:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="sitio-header">
+      <div class="header-flex">
+        <a href="../../../index.html" class="logo">
+          <img src="../../img/Logo-el-tano-hero-2.png" alt="Parrilla El Tano" />
+        </a>
+
+        <nav class="navegacion">
+          <a href="../../../index.html">Inicio</a>
+          <a href="../Menu/menu.html">Nuestra parrilla</a>
+          <a href="../../../index.html#ubicacion">Ubicación</a>
+        </nav>
+      </div>
+    </header>
+    <button id="hamburger-btn">☰</button>
+
+    <nav id="mobile-menu">
+      <a href="../../../index.html">Inicio</a>
+      <a href="../../views/Menu/menu.html">Nuestra parrilla</a>
+      <a href="/index.html#ubicacion">Ubicación</a>
+    </nav>
+    <main>
+      <img class="logo-bienvenida" src="../../img/logo.png" />
+      <h1>Reservas</h1>
+      <p>Solicitá tu mesa en Parrilla El Tano</p>
+      <section class="reserva-layout fade-up">
+        <div>
+          <img src="../../img/placeholder.png" alt="Parrilla El Tano" />
+
+          <h2>La mesa te está esperando</h2>
+
+          <p>
+            Compartí un asado con amigos y familia en un ambiente cálido, con
+            parrilla libre y juegos para los chicos.
+          </p>
+        </div>
+        <div class="reserva-form-container">
+          <form id="reserva-form">
+            <div>
+              <label for="nombre">Nombre y apellido *</label>
+              <input type="text" id="nombre" name="nombre" required />
+            </div>
+
+            <div>
+              <label for="telefono">Teléfono *</label>
+              <input type="tel" id="telefono" name="telefono" required />
+            </div>
+
+            <div>
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div>
+              <label for="fecha">Fecha *</label>
+              <input type="date" id="fecha" name="fecha" required />
+            </div>
+
+            <div>
+              <label for="hora">Hora *</label>
+              <input type="time" id="hora" name="hora" required />
+            </div>
+
+            <div>
+              <label for="comensales">Cantidad de comensales *</label>
+              <input
+                type="number"
+                id="comensales"
+                name="comensales"
+                min="1"
+                max="50"
+                required
+              />
+            </div>
+
+            <div>
+              <label for="comentarios"> Comentarios adicionales </label>
+
+              <textarea id="comentarios" name="comentarios" rows="5"></textarea>
+            </div>
+
+            <button type="submit">Solicitar Reserva</button>
+          </form>
+
+          <p id="mensaje"></p>
+        </div>
+      </section>
+
+      <section class="contacto-card fade-up">
+        <h2>Contacto rápido</h2>
+
+        <a href="tel:+541167343265"> 📞 Llamar ahora </a>
+
+        <br /><br />
+
+        <a href="https://wa.me/541167343265" target="_blank"> 💬 WhatsApp </a>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer-top"></div>
+      <div class="footer-container">
+        <div class="footer-logo">
+          <img src="../../img/Logo-el-tano-hero-2.png" alt="Parrilla El Tano" />
+          <p>Tradición familiar, buena comida y momentos para compartir.</p>
+        </div>
+        <div class="footer-contacto">
+          <h3>Contacto</h3>
+          <ul>
+            <li>
+              <i class="fa-solid fa-location-dot"></i> Av. Mitre 5735, Wilde
+            </li>
+
+            <li>
+              <a
+                href="https://wa.me/541112345678"
+                target="_blank"
+                class="telefono-wpp"
+              >
+                <i class="fa-brands fa-whatsapp"></i> +54 11 1234 5678
+              </a>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i>
+              info@eltano.com
+            </li>
+          </ul>
+        </div>
+        <div class="footer-horarios">
+          <h3>Horarios</h3>
+          <ul>
+            <li>Martes, Miercoles, Jueves y Viernes</li>
+            <li>17:30hs - 1:00hs</li>
+            <li class="espacio"></li>
+            <li>Sábado</li>
+            <li>11:30hs - 1:00h</li>
+            <li class="espacio"></li>
+            <li>Domingo</li>
+            <li>11:30 - 17:30</li>
+            <li class="espacio"></li>
+            <li>Lunes cerrado</li>
+          </ul>
+        </div>
+        <div class="footer-redes">
+          <h3>Seguinos</h3>
+          <div class="redes">
+            <a
+              href="https://www.instagram.com/parrillaeltano1/"
+              target="_blank"
+              aria-label="instagram"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a
+              href="https://www.tiktok.com/@parrillaeltano"
+              target="_blank"
+              aria-label="TikTok"
+            >
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          © 2026 Parrilla El Tano - Sitio creado por
+          <a href="https://paleoware.com">Paleoware</a>
+        </p>
+      </div>
+    </footer>
+    <script src="reservas.js"></script>
+  </body>
+</html>

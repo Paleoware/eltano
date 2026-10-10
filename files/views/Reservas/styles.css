@@ -1,0 +1,677 @@
+/* ==========================
+   RESET
+========================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f4f1ea;
+  font-family: "Segoe UI", sans-serif;
+  color: #333;
+}
+
+h2,
+h1,
+.subtitulo {
+  font-family: "Cormorant Garamond", sans-serif;
+}
+
+p {
+  font-family: "lato regular", serif;
+}
+
+a {
+  font-family: "Montserrat Alternates", sans-serif;
+}
+
+h3 {
+  font-family: "Montserrat Alternates", serif;
+  font-style: normal;
+}
+
+/*----FADE UP----*/
+.fade-up {
+  opacity: 0;
+
+  transform: translateY(80px);
+
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fade-up.visible {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+.sitio-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  padding: 15px 40px;
+
+  background: rgba(20, 20, 20, 0.95);
+
+  backdrop-filter: blur(8px);
+
+  z-index: 100;
+
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+  background-color: #234f2e;
+}
+
+.sitio-header.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  max-height: 70px;
+  display: block;
+}
+
+.navegacion {
+  display: flex;
+  gap: 30px;
+}
+
+.navegacion a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.navegacion a:hover {
+  color: #8c1c13;
+}
+
+/* ==========================
+   HAMBURGUESA
+========================== */
+
+#hamburger-btn {
+  position: fixed;
+
+  top: 20px;
+  right: 20px;
+
+  width: 55px;
+  height: 55px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #8c1c13;
+
+  color: white;
+
+  font-size: 1.8rem;
+
+  cursor: pointer;
+
+  display: none;
+
+  z-index: 999;
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+#hamburger-btn.visible {
+  display: block;
+}
+
+#mobile-menu {
+  position: fixed;
+
+  top: 0;
+  right: -280px;
+
+  width: 280px;
+  height: 100vh;
+
+  background: #1a1a1a;
+
+  display: flex;
+  flex-direction: column;
+
+  padding-top: 100px;
+
+  transition: right 0.3s ease;
+
+  z-index: 998;
+}
+
+#mobile-menu.open {
+  right: 0;
+}
+
+#mobile-menu a {
+  color: white;
+
+  text-decoration: none;
+
+  padding: 20px 30px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================
+   MAIN
+========================== */
+
+main {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 140px 20px 80px;
+}
+
+main > h1 {
+  text-align: center;
+
+  color: #8c1c13;
+
+  font-size: 3rem;
+
+  margin-bottom: 10px;
+}
+
+main > p {
+  text-align: center;
+
+  font-size: 1.2rem;
+
+  margin-bottom: 50px;
+}
+
+/* ==========================
+   LAYOUT RESERVAS
+========================== */
+
+.logo-bienvenida {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 20vh;
+}
+
+.reserva-layout {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  margin-bottom: 50px;
+}
+
+.reserva-layout > div:first-child {
+  flex: 1.4;
+}
+
+.reserva-form-container {
+  flex: 0.9;
+
+  background: #fffdf8;
+  border-radius: 20px;
+  padding: 35px;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+  position: relative;
+}
+
+.reserva-form-container::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 8px;
+
+  border-radius: 20px 20px 0 0;
+
+  background: linear-gradient(
+    to right,
+    #009246 33%,
+    white 33% 66%,
+    #ce2b37 66%
+  );
+}
+
+.reserva-layout img {
+  width: 100%;
+  height: 450px;
+
+  object-fit: cover;
+
+  border-radius: 20px;
+
+  margin-bottom: 25px;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.reserva-layout h2 {
+  color: #8c1c13;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.reserva-layout p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+/* ==========================
+   FORMULARIO
+========================== */
+
+#reserva-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#reserva-form label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-weight: 600;
+
+  color: #444;
+}
+
+#reserva-form input,
+#reserva-form textarea {
+  width: 100%;
+
+  padding: 14px;
+
+  border: 2px solid #ddd;
+
+  border-radius: 10px;
+
+  font-size: 1rem;
+
+  background: white;
+}
+
+#reserva-form input:focus,
+#reserva-form textarea:focus {
+  outline: none;
+  border-color: #ffc107;
+}
+
+#reserva-form textarea {
+  resize: vertical;
+}
+
+/* ==========================
+   BOTÓN
+========================== */
+
+#reserva-form button {
+  background: #ffc107;
+
+  color: #222;
+
+  border: none;
+
+  border-radius: 10px;
+
+  padding: 15px;
+
+  font-size: 1rem;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+#reserva-form button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+/* ==========================
+   MENSAJES
+========================== */
+
+#mensaje {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* ==========================
+   CONTACTO
+========================== */
+
+.contacto-card {
+  position: relative;
+
+  background: #fffdf8;
+
+  border-radius: 20px;
+
+  padding: 40px;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+  text-align: center;
+  background-color: #234f2e;
+}
+
+.contacto-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 8px;
+
+  border-radius: 20px 20px 0 0;
+
+  background: linear-gradient(
+    to right,
+    #009246 33%,
+    white 33% 66%,
+    #ce2b37 66%
+  );
+}
+
+.contacto-card h2 {
+  color: white;
+
+  margin-bottom: 30px;
+
+  font-size: 2rem;
+}
+
+.contacto-card a {
+  display: inline-block;
+
+  min-width: 220px;
+
+  margin: 10px;
+
+  background: #8c1c13;
+
+  color: white;
+
+  text-decoration: none;
+
+  padding: 15px 25px;
+
+  border-radius: 10px;
+
+  font-weight: bold;
+
+  transition: 0.3s;
+}
+
+.contacto-card a:hover {
+  transform: translateY(-2px);
+}
+
+/* =============FOOTER=============*/
+
+.footer {
+  background:
+    linear-gradient(rgba(10, 20, 15, 0.92), rgba(10, 20, 15, 0.92)),
+    url("../img/footer-bg.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+
+  color: #f4f1ea;
+
+  margin-top: 100px;
+}
+
+.footer-top {
+  height: 6px;
+
+  background: linear-gradient(
+    to right,
+    #234f2e 33%,
+    #f4f1ea 33%,
+    #f4f1ea 66%,
+    #8c1c13 66%
+  );
+}
+
+.footer-container {
+  max-width: 1400px;
+
+  margin: auto;
+
+  padding: 80px 20px;
+
+  display: grid;
+
+  grid-template-columns:
+    1.5fr
+    1fr
+    1fr
+    1fr;
+
+  gap: 50px;
+}
+
+.footer h3 {
+  font-family: "Cormorant Garamond", serif;
+
+  color: #c8a25d;
+
+  font-size: 2rem;
+
+  margin-bottom: 25px;
+}
+
+.footer-logo img {
+  width: 100px;
+
+  margin-bottom: 20px;
+}
+
+.footer-logo p {
+  max-width: 300px;
+
+  line-height: 1.8;
+
+  color: #d6d0c7;
+}
+
+.footer ul {
+  list-style: none;
+
+  padding: 0;
+}
+
+.footer li {
+  margin-bottom: 12px;
+
+  color: #d6d0c7;
+}
+
+.telefono-wpp {
+  color: #d6d0c7;
+
+  text-decoration: none;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.telefono-wpp i {
+  font-size: 1.2rem;
+}
+
+.redes {
+  display: flex;
+
+  gap: 15px;
+
+  margin-bottom: 30px;
+}
+
+.redes a {
+  width: 50px;
+
+  height: 50px;
+
+  border-radius: 12px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  text-decoration: none;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  color: #f4f1ea;
+
+  transition: 0.3s;
+}
+
+.redes a:hover {
+  background: #8c1c13;
+
+  transform: translateY(-4px);
+}
+
+.redes i {
+  font-size: 1.4rem;
+}
+
+.btn-footer {
+  display: inline-block;
+
+  padding: 14px 28px;
+
+  background: #8c1c13;
+
+  color: white;
+
+  text-decoration: none;
+
+  border-radius: 12px;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.btn-footer:hover {
+  background: #a62218;
+
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  text-align: center;
+
+  padding: 25px;
+
+  color: #b9b2a8;
+}
+
+/* MOBILE ========================== */
+@media (max-width: 768px) {
+  .header-flex {
+    display: none;
+  }
+
+  #hamburger-btn {
+    display: block;
+  }
+
+  .navegacion {
+    display: none;
+  }
+
+  main {
+    padding-top: 100px;
+  }
+
+  main > h1 {
+    font-size: 2.2rem;
+  }
+
+  .reserva-layout {
+    flex-direction: column;
+  }
+
+  .reserva-layout > div:first-child,
+  .reserva-form-container {
+    width: 100%;
+  }
+
+  .reserva-layout img {
+    height: 280px;
+  }
+
+  .contacto-card a {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+
+    text-align: center;
+  }
+
+  .footer-logo p {
+    margin: auto;
+  }
+
+  .telefono-wpp {
+    justify-content: center;
+  }
+
+  .redes {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Nuestra parrilla | Parrilla El Tano Debenedetti</title>
+    <!-- fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Lato&family=Montserrat+Alternates:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="sitio-header">
+      <div class="header-flex">
+        <a href="../../../index.html" class="logo">
+          <img src="../../img/Logo-el-tano-hero-2.png" alt="Parrilla El Tano" />
+        </a>
+
+        <nav class="navegacion">
+          <a href="../../../index.html">Inicio</a>
+          <a href="../Reservas/reservas.html">Reservas</a>
+          <a href="../../../index.html#ubicacion">Ubicación</a>
+        </nav>
+      </div>
+    </header>
+    <button id="hamburger-btn">☰</button>
+
+    <nav id="mobile-menu">
+      <a href="../../../index.html">Inicio</a>
+      <a href="../Reservas/reservas.html">Reservas</a>
+      <a href="../../../index.html#ubicacion">Ubicación</a>
+    </nav>
+    <main class="parrilla-main">
+      <!-- HERO / CAROUSEL -->
+
+      <section class="parrilla-hero">
+        <section class="carousel-section" id="restaurante">
+          <div class="carousel-container">
+            <div class="carousel-track">
+              <img
+                src="../../img/0w2kcAVNO_360x240__1.jpg"
+                class="slide"
+                alt="Parrilla"
+              />
+
+              <img
+                src="../../img/asado-banderita-paso-a-paso-1766402507-1766402507.jpg"
+                class="slide"
+                alt="Asado"
+              />
+
+              <img
+                src="../../img/asado-perfecto-1_1200x1200.webp"
+                class="slide"
+                alt="Carnes"
+              />
+            </div>
+
+            <button class="btn prev">❮</button>
+            <button class="btn next">❯</button>
+
+            <div class="carrusel-indicators"></div>
+          </div>
+        </section>
+
+        <div class="hero-overlay fade-up">
+          <h1>Parrilla Libre</h1>
+
+          <p>
+            Todo el sabor de la tradición argentina en una experiencia única
+            para compartir con familia y amigos.
+          </p>
+        </div>
+        <div class="scroll-indicator">↓</div>
+      </section>
+
+      <!-- DESCRIPCION -->
+
+      <section class="descripcion-parrilla">
+        <h2 class="fade-up">¿Qué incluye la parrilla libre?</h2>
+
+        <p>
+          Disfrutá una selección completa de carnes asadas a la parrilla,
+          incluyendo vacío, asado, costillas, bondiola, pollo, chorizo, morcilla
+          y achuras.
+        </p>
+
+        <p>
+          Además, acompañamientos variados, ensaladas frescas, papas fritas,
+          opciones para los más chicos y postres para completar la experiencia.
+        </p>
+
+        <p>
+          Nuestro objetivo es que vengas con hambre y te vayas con una sonrisa.
+        </p>
+      </section>
+
+      <!-- GALERIA PINTEREST -->
+
+      <section class="galeria-comida">
+        <img class="fade-up" src="../../img/placeholder.png" alt="Asado" />
+        <img
+          class="fade-up"
+          src="../../img/0w2kcAVNO_360x240__1.jpg"
+          alt="Vacío"
+        />
+        <img
+          class="fade-up"
+          src="../../img/asado_argentino-768.webp"
+          alt="Achuras"
+        />
+        <img
+          class="fade-up"
+          src="../../img/bienvenidos-a-nuestra.jpg"
+          alt="Costillar"
+        />
+        <img
+          class="fade-up"
+          src="../../img/asado-perfecto-1_1200x1200.webp"
+          alt="Chorizos"
+        />
+        <img class="fade-up" src="../../img/papas.jfif" alt="Parrillada" />
+      </section>
+
+      <!-- PRECIO PARRILLA -->
+
+      <p class="precio-menu">
+        Todo incluido por solo
+        <span id="precio-menu">Cargando...</span>
+      </p>
+
+      <!-- SEGUNDA GALERIA -->
+
+      <section class="galeria-comida galeria-inferior">
+        <img class="fade-up" src="../../img/placeholder2.webp" alt="Vino" />
+        <img class="fade-up" src="../../img/placeholder3.png" alt="Parrilla" />
+        <img class="fade-up" src="../../img/vino1.webp" alt="Postre" />
+        <img class="fade-up" src="../../img/vino2.jpg" alt="Ensalada" />
+        <img
+          class="fade-up"
+          src="../../img/images (2).jfif"
+          alt="Papas fritas"
+        />
+      </section>
+
+      <!-- Bebidas -->
+
+      <section class="vinos-section">
+        <div class="titulo-seccion fade-up">
+          <h2>Nuestra Selección de Vinos</h2>
+          <p>Etiquetas elegidas para acompañar nuestros mejores platos.</p>
+        </div>
+
+        <div class="vinos-grid fade-up">
+          <article class="vino-card">
+            <img src="../../img/malbec.jfif" alt="Malbec" />
+            <div class="vino-info">
+              <h3>Malbec</h3>
+              <span>Bodega Norton</span>
+              <p>
+                Ideal para acompañar cortes de carne y parrilla tradicional.
+              </p>
+            </div>
+          </article>
+
+          <article class="vino-card">
+            <img src="../../img/vino1.webp" alt="Cabernet" />
+            <div class="vino-info">
+              <h3>Cabernet Sauvignon</h3>
+              <span>Rutini Wines</span>
+              <p>Intenso y elegante, perfecto para carnes maduradas.</p>
+            </div>
+          </article>
+
+          <article class="vino-card">
+            <img src="../../img/vino2.jpg" alt="Chardonnay" />
+            <div class="vino-info">
+              <h3>Chardonnay</h3>
+              <span>Luigi Bosca</span>
+              <p>Fresco y equilibrado, recomendado para pescados y entradas.</p>
+            </div>
+          </article>
+
+          <article class="vino-card">
+            <img src="../../img/ruttini.jfif" alt="Torrontés" />
+            <div class="vino-info">
+              <h3>Torrontés</h3>
+              <span>El Esteco</span>
+              <p>Aromático y ligero, excelente para compartir.</p>
+            </div>
+          </article>
+
+          <article class="vino-card">
+            <img src="../../img/images (3).jfif" alt="Extra Brut" />
+            <div class="vino-info">
+              <h3>Extra Brut</h3>
+              <span>Chandon</span>
+              <p>Perfecto para celebraciones y ocasiones especiales.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CIERRE -->
+
+      <section class="experiencia-final">
+        <h2>Una experiencia para compartir</h2>
+
+        <p>
+          Ideal para reuniones familiares, encuentros con amigos, celebraciones
+          y momentos especiales.
+        </p>
+
+        <a href="../Reservas/reservas.html" class="btn-reservar">
+          Reservar una mesa
+        </a>
+      </section>
+      <footer class="footer">
+        <div class="footer-top"></div>
+        <div class="footer-container">
+          <div class="footer-logo">
+            <img
+              src="../../img/Logo-el-tano-hero-2.png"
+              alt="Parrilla El Tano"
+            />
+            <p>Tradición familiar, buena comida y momentos para compartir.</p>
+          </div>
+          <div class="footer-contacto">
+            <h3>Contacto</h3>
+            <ul>
+              <li>
+                <i class="fa-solid fa-location-dot"></i> Av. Mitre 5735, Wilde
+              </li>
+
+              <li>
+                <a
+                  href="https://wa.me/541112345678"
+                  target="_blank"
+                  class="telefono-wpp"
+                >
+                  <i class="fa-brands fa-whatsapp"></i> +54 11 1234 5678
+                </a>
+              </li>
+              <li>
+                <i class="fa-solid fa-envelope"></i>
+                info@eltano.com
+              </li>
+            </ul>
+          </div>
+          <div class="footer-horarios">
+            <h3>Horarios</h3>
+            <ul>
+              <li>Martes, Miercoles, Jueves y Viernes</li>
+              <li>17:30hs - 1:00hs</li>
+              <li class="espacio"></li>
+              <li>Sábado</li>
+              <li>11:30hs - 1:00h</li>
+              <li class="espacio"></li>
+              <li>Domingo</li>
+              <li>11:30 - 17:30</li>
+              <li class="espacio"></li>
+              <li>Lunes cerrado</li>
+            </ul>
+          </div>
+          <div class="footer-redes">
+            <h3>Seguinos</h3>
+            <div class="redes">
+              <a
+                href="https://www.instagram.com/parrillaeltano1/"
+                target="_blank"
+                aria-label="instagram"
+              >
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a
+                href="https://www.tiktok.com/@parrillaeltano"
+                target="_blank"
+                aria-label="TikTok"
+              >
+                <i class="fa-brands fa-tiktok"></i>
+              </a>
+            </div>
+            <a href="../Reservas/reservas.html" class="btn-footer"
+              >Reservá tu mesa</a
+            >
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            © 2026 Parrilla El Tano - Sitio creado por
+            <a href="https://paleoware.com">Paleoware</a>
+          </p>
+        </div>
+      </footer>
+    </main>
+    <script>
+      async function cargarPrecio() {
+        try {
+          const response = await fetch("./precio-menu.txt?t=" + Date.now());
+
+          const precio = await response.text();
+
+          document.getElementById("precio-menu").textContent = precio.trim();
+        } catch (error) {
+          console.error(error);
+
+          document.getElementById("precio-menu").textContent = "Consultar";
+        }
+      }
+
+      cargarPrecio();
+    </script>
+    <script src="menu.js"></script>
+  </body>
+</html>
